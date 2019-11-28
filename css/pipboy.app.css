@@ -4,6 +4,21 @@
     src: url(../fonts/monofonto.ttf)
 }
 
+::-webkit-scrollbar {
+    width: 4px;
+}
+ 
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+    border-radius: 10px;
+}
+ 
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background: #14fe17;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
+}
+
 body{
     color:#14fe17;
     background: #272b23;
@@ -121,6 +136,13 @@ nav.nav-underline > ul.nav > li.nav-item > a.nav-link {
 
 .tab-content .tab-pane.active{
     height: 70vh;
+}
+
+@media screen and (min-width: 800px){
+
+.tab-content .tab-pane.active.big{
+    padding-top: 7vh;
+}
 }
 
 #status{
@@ -290,6 +312,8 @@ nav.nav-underline > ul.nav > li.nav-item > a.nav-link {
     padding: 0;
     list-style: none;
     margin: 0;
+    max-height: 40vh;
+    overflow-y: scroll;
 }
 
 .item-list > li > a{
@@ -307,6 +331,27 @@ nav.nav-underline > ul.nav > li.nav-item > a.nav-link {
     color: #272b23;
 }
 
+.item-list a.active::before{
+    content: '';
+    display: block;
+    position: relative;
+    float: left;
+    height: 10px;
+    width: 10px;
+    margin: 6px 6px 0 -20px;
+    background: #14fe17;
+}
+
+.item-list a.active:hover::before{
+    background: #272b23;
+}
+
+
+.weapon-img .weapon{
+    width: 100%;
+    max-height: 80vh;
+}
+
 .item-stats{
     width: 20vw;
     right: 0;
@@ -315,12 +360,46 @@ nav.nav-underline > ul.nav > li.nav-item > a.nav-link {
 }
 
 @media screen and (max-width:800px){
+
+    .item-list{
+        width:90%;
+        max-height: 17vh;
+        font-size: 13px;
+    }
+
+    .item-list > li > a{
+        width: 100%;
+    }
+
+    .item-list a.active::before{
+        content: '';
+        display: block;
+        position: relative;
+        float: left;
+        height: 7px;
+        width: 7px;
+        margin: 6px 6px 0 -10px;
+        background: #14fe17;
+    }
+
+    .row.img-row{
+        display: inline-block;
+    }
+
+    .weapon-img .weapon{
+        width: 100%;
+        max-height: 70vh;
+    }
+
     .item-stats{
         width: 40vw;
+        right: 30px;
     }
+
 }
 
 .item-stats .col{
     background: rgba(16,255,0,.15);
     margin-bottom: 2px;
 }
+
