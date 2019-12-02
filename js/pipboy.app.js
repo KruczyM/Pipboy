@@ -13,12 +13,25 @@ mouseTargetList.addEventListener('click', function (e) {
             container.querySelector('.value').textContent = weaponItem.value
 
             if (document.querySelector('.weapon-img img')) {
+                let divPreloader = document.createElement('div')
                 let weponImg = document.querySelector('.weapon-img img')
-                weponImg.src = '../img/weapons/' + weapons[item].name + '.png';
+                divPreloader.classList = "preloader"
+                document.querySelector('.col.weapon-img').removeChild(weponImg)
+                weponImg.style.opacity = 0
+                document.querySelector('.row.img-row').appendChild(divPreloader)
+                weponImg.src = '../img/weapons/' + weapons[item].name + '.png'
+                document.querySelector('.col.weapon-img').appendChild(weponImg)
             } else {
                 let weaponImg = new Image();
-                weaponImg.src = '../img/weapons/' + weapons[item].name + '.png';
+                weaponImg.addEventListener('load', function () {
+                    let node = document.querySelector('.preloader')
+                    document.querySelector('.row.img-row').removeChild(node)
+                    this.style.opacity = 1
+                });
+                weaponImg.src = '../img/weapons/' + weapons[item].name + '.png'
                 weaponImg.classList = 'img-responsive weapon'
+                weaponImg.alt = weapons[item].name
+                weaponImg.style.opacity = 0;
                 document.querySelector('.weapon-img').appendChild(weaponImg)
             }
         }
@@ -29,7 +42,7 @@ mouseTargetList.addEventListener('click', function (e) {
 })
 
 const weponList = document.querySelector('.item-list')
-for(item in weapons){
+for (item in weapons) {
     let li = document.createElement('li')
     let a = document.createElement('a')
     a.innerText = weapons[item].name

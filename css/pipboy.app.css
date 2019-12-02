@@ -343,6 +343,8 @@ nav.nav-underline > ul.nav > li.nav-item > a.nav-link {
 .weapon-img .weapon{
     width: 100%;
     max-height: 80vh;
+    transition: opacity 1s; 
+    transition-duration: 2s;
 }
 
 .item-stats{
@@ -396,3 +398,47 @@ nav.nav-underline > ul.nav > li.nav-item > a.nav-link {
     margin-bottom: 2px;
 }
 
+.preloader,
+.preloader:before,
+.preloader:after {
+    background:  #14fe17;
+    animation: animation 1s infinite ease-in-out;
+    width: 12px;
+}
+
+.preloader:before,
+.preloader:after {
+    position: absolute;
+    content: '';
+}
+
+.preloader:before {
+    left: -20px;
+    animation-delay: -0.32s;
+}
+
+.preloader {
+    transform: translateZ(0);
+    animation-delay: -0.16s;
+    right: 17vw;
+    top: 24vh;
+    display: block;
+    position: absolute;
+}
+
+.preloader:after {
+    left: 20px;
+}
+
+@keyframes animation {
+    0%,
+    80%,
+    100% {
+        box-shadow: 0 0  #14fe17;
+        height: 40px;
+    }
+    40% {
+        box-shadow: 0 -30px  #14fe17;
+        height: 80px;
+    }
+}
