@@ -1,8 +1,3 @@
-import weapons from './weapons';
-
-console.log(weapons)
-
-
 let mouseTargetList = document.querySelector(".item-list")
 mouseTargetList.addEventListener('click', function (e) {
     for (item in weapons) {

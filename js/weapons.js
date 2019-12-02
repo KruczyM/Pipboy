@@ -693,5 +693,3 @@ const weapons = [
         "value": "125"
     }
 ]
-
-export default weapons;
