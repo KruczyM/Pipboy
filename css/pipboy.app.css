@@ -232,9 +232,9 @@ nav.nav-underline > ul.nav > li.nav-item > a.nav-link {
     left: 5px;
 }
 
-@media screen and (min-width : 660px){
+@media screen and (min-width : 800px){
     .pip-footer{
-        font-size: 22px;
+        font-size: 2vw;
     }
 
     .stat-bar {
@@ -242,7 +242,9 @@ nav.nav-underline > ul.nav > li.nav-item > a.nav-link {
         margin: auto;
     }
 }
-.pip-footer .col, .pip-footer .col-8 {
+
+
+.pip-footer .col, .pip-footer .col-8, .pip-footer .col-6 {
     background: rgba(16,255,0,.15);
 }
 
