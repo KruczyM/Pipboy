@@ -1,7 +1,8 @@
 
 @font-face{
     font-family: Pipboy;
-    src: url(../fonts/monofonto.ttf)
+    src: url(../fonts/monofonto.ttf);
+    font-display: swap;
 }
 
 ::-webkit-scrollbar {
@@ -228,6 +229,7 @@ nav.nav-underline > ul.nav > li.nav-item > a.nav-link {
     margin: 10px 0 10px 5px;
     width: calc(100% - 20px);
     bottom: 0;
+    left: 5px;
 }
 
 @media screen and (min-width : 660px){
@@ -240,17 +242,8 @@ nav.nav-underline > ul.nav > li.nav-item > a.nav-link {
         margin: auto;
     }
 }
-.pip-footer .col-8,.pip-footer .col-2 {
+.pip-footer .col, .pip-footer .col-8 {
     background: rgba(16,255,0,.15);
-    padding: 5px 10px;
-}
-
-/* .pip-footer .col-2:first-of-type{
-    margin-left: 2vw;
-} */
-.pip-footer .col-8{
-    margin: 0px 5px;
-    flex: 0 0 60%;
 }
 
 .nav.nav-tabs{
@@ -356,7 +349,7 @@ nav.nav-underline > ul.nav > li.nav-item > a.nav-link {
     width: 20vw;
     right: 0;
     position: absolute;
-    bottom: 2vh;
+    bottom: 5vh;
 }
 
 @media screen and (max-width:800px){
