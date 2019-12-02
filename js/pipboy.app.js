@@ -13,19 +13,17 @@ mouseTargetList.addEventListener('click', function (e) {
             container.querySelector('.value').textContent = weaponItem.value
 
             if (document.querySelector('.weapon-img img')) {
-                let divPreloader = document.createElement('div')
                 let weponImg = document.querySelector('.weapon-img img')
-                divPreloader.classList = "preloader"
                 document.querySelector('.col.weapon-img').removeChild(weponImg)
                 weponImg.style.opacity = 0
-                document.querySelector('.row.img-row').appendChild(divPreloader)
+                document.querySelector('.preloader').style.opacity = 1
                 weponImg.src = '../img/weapons/' + weapons[item].name + '.png'
                 document.querySelector('.col.weapon-img').appendChild(weponImg)
             } else {
                 let weaponImg = new Image();
                 weaponImg.addEventListener('load', function () {
                     let node = document.querySelector('.preloader')
-                    document.querySelector('.row.img-row').removeChild(node)
+                    node.style.opacity = 0
                     this.style.opacity = 1
                 });
                 weaponImg.src = '../img/weapons/' + weapons[item].name + '.png'
