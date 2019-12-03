@@ -1,5 +1,5 @@
 let mouseTargetList = document.querySelector(".item-list")
-mouseTargetList.addEventListener('click', function (e) {
+if(mouseTargetList)mouseTargetList.addEventListener('click',e=>{
     for (item in weapons) {
         if (weapons[item].name == e.target.innerText) // className
         {
@@ -40,10 +40,29 @@ mouseTargetList.addEventListener('click', function (e) {
 })
 
 const weponList = document.querySelector('.item-list')
-for (item in weapons) {
+if(weponList)for (item in weapons) {
     let li = document.createElement('li')
     let a = document.createElement('a')
     a.innerText = weapons[item].name
     li.appendChild(a)
     weponList.appendChild(li)
+}
+
+let heroStat = document.querySelector('.hero-stats')
+if(heroStat){
+    heroStat.addEventListener('click',e=>{
+        if(document.querySelector('.stat-active')) document.querySelector('.stat-active').classList = ''
+        if( event.target.tagName.toUpperCase() == 'LI'){
+            let statImg = new Image();
+            let oldImg = document.querySelector('.stat-img img')
+            let srcImg = e.target.innerText.replace(/[0-9]/g,'')
+            e.target.classList += 'stat-active'
+            statImg.src = './img/stats/' + srcImg + '.png'
+            statImg.alt = srcImg
+            document.querySelector('.stat-img').replaceChild(statImg,oldImg)
+            stats.forEach(e=>{
+                e.name == srcImg.trim()? document.querySelector('.stat-description').innerText = e.description:null
+            })
+        }
+    })
 }
