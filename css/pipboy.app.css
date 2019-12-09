@@ -468,7 +468,7 @@ nav.nav-underline > ul.nav > li.nav-item > a.nav-link {
     margin-bottom: 2px;
 }
 
-.hero-stats{
+.hero-stats, .perks{
     list-style: none;
     display: flex;
     justify-content: space-around;
@@ -477,12 +477,18 @@ nav.nav-underline > ul.nav > li.nav-item > a.nav-link {
     padding-left: 0;
     height: 20%;
 }
-#special .hero-stats > li:hover{
+
+.perks{
+    display: block;
+    overflow-y: scroll;
+    padding-top: 0px;
+}
+#special .hero-stats > li:hover, .perks > li:hover{
     background: #14fe17;
     color: #000000;
 }
 
-.stat-active{
+.stat-active, .perk-active{
     background: #14fe17;
     color: #000000;
 }
@@ -491,68 +497,84 @@ nav.nav-underline > ul.nav > li.nav-item > a.nav-link {
     float: right;
 }
 
-#special .container{
+#special .container, #perks .container{
     height: 100%;
 }
 
-.stats-container{
+#special .container {
+        display: table-cell;
+}
+
+.stats-container, .perks-container{
     height: 80%;
 }
 
-#special .stats-container img {
-    width: 80%;
+#special .stats-container img, #perks .perks-container img {
+    width: 70%;
     max-height: 100%;
     filter:grayscale(1) sepia(50%) hue-rotate(55deg) saturate(7) brightness(0.9) contrast(5);
 }
 
-.stat-description{
-    height: 20%;
+.stat-description, .perk-description{
+    height: 40%;
     font-size: 4vw;
 }
 
-.stat-img {
-    height: 80%;
+.stat-img, .perk-img {
     text-align: center;
 }
 
  @media screen and (min-height: 800px){
     .hero-stats{
-        font-size: 20px;
-        padding-top: 40px;
+        width: 85vw;
+        font-size: 18px;
+    }
+
+    .stat-img, .perk-img {
+        padding-top: 6vh;
+        height: 70%;
+    }
+    .perks{
+        font-size: 2vh;
+    }
+
+    .stat-description, .perk-description{
+        font-size: 2.5vh;
     }
 
 } 
 
 @media screen and (min-width: 800px) and (max-height: 800px)
 {
-    #special .container {
+    #special .container, #perks .container {
         display: flex;
         height: 100%;
     }
 
-    #special .hero-stats{
+    #special .hero-stats, #perks .perks{
         height: 90%;
         font-size: 20px;
         flex: 0 0 40%;
     }
 
-    #special .hero-stats > li {
+    #special .hero-stats > li, .perks > li {
         padding-left: 10px;
     }
 
-    #special .stats-container{
+    #special .stats-container, .perks-container{
         flex: 1;
     }
 
-    #special .stat-img{
+    #special .stat-img, .perk-img{
         height: 80%;
     }
 
-    #special .stats-container img {
+    #special .stats-container img, .perks-container img {
+        width: 95%;
         margin-left: 30px;
     }
 
-    #special .stat-description{
+    #special .stat-description, .perk-description{
         text-align: center;
         font-size: 2vw;
         margin: 2vh 0 0 5vw;

@@ -1,4 +1,4 @@
-let mouseTargetList = document.querySelector(".item-list")
+const mouseTargetList = document.querySelector(".item-list")
 if(mouseTargetList)mouseTargetList.addEventListener('click',e=>{
     for (item in weapons) {
         if (weapons[item].name == e.target.innerText) // className
@@ -35,7 +35,7 @@ if(mouseTargetList)mouseTargetList.addEventListener('click',e=>{
         }
     }
 
-    (this.querySelector('.active')) ? this.querySelector('.active').classList.remove('active') : null
+    (mouseTargetList.querySelector('.active')) ? mouseTargetList.querySelector('.active').classList.remove('active') : null
     e.target.classList.add('active')
 })
 
@@ -48,7 +48,7 @@ if(weponList)for (item in weapons) {
     weponList.appendChild(li)
 }
 
-let heroStat = document.querySelector('.hero-stats')
+const heroStat = document.querySelector('.hero-stats')
 if(heroStat){
     heroStat.addEventListener('click',e=>{
         if(document.querySelector('.stat-active')) document.querySelector('.stat-active').classList = ''
@@ -60,9 +60,36 @@ if(heroStat){
             statImg.src = './img/stats/' + srcImg + '.png'
             statImg.alt = srcImg
             document.querySelector('.stat-img').replaceChild(statImg,oldImg)
-            stats.forEach(e=>{
-                e.name == srcImg.trim()? document.querySelector('.stat-description').innerText = e.description:null
+            stats.forEach(el=>{
+                el.name == srcImg.trim()? document.querySelector('.stat-description').innerText = el.description:null
             })
         }
     })
 }
+
+const perkList = document.querySelector('.perks')
+if(perkList){
+    for (perk in perks){
+        const li = document.createElement('li')
+        li.innerText = perks[perk].name
+        perkList.appendChild(li)
+    }
+
+    perkList.addEventListener('click',e=>{
+        if(document.querySelector('.perk-active')) document.querySelector('.perk-active').classList = ''
+        if( event.target.tagName.toUpperCase() == 'LI'){
+            let perkImg = new Image();
+            let oldImg = document.querySelector('.perk-img img')
+            e.target.classList += 'perk-active'
+            perkImg.src = './img/perks/' + e.target.innerText + '.png'
+            perkImg.alt = e.target.innerText
+            document.querySelector('.perk-img').replaceChild(perkImg,oldImg)
+            perks.forEach(el=>{
+                el.name == e.target.innerText.trim()? document.querySelector('.perk-description').innerText = el.perkDescription:null
+            })
+        }
+    })
+}
+
+
+
