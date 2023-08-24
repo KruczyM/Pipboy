@@ -1,5 +1,8 @@
 # Pipboy
-static web page HTML/CSS/JS
+unfinished pipboy project
 
-Ze względu na brak podejścia mobile first przy tworzeniu strony, nie jest ona w pełni responsywna, 
-aczkolwiek w przyszłości na pewno będę ją optymalizować, żeby uzyskać pełny efekt rwd
+Due to the lack of a mobile first approach when creating a website, it is not fully responsive,
+although in the future I will definitely optimize it to get the full RWD effect
+
+
+https://kruczym.github.io/Pipboy/index.html
